@@ -156,6 +156,18 @@ contract UFragments is ERC20Detailed, Ownable {
         emit Transfer(address(0x0), owner_, _totalSupply);
     }
 
+    /**
+     * @return The total number of fragments.
+     */
+    function totalSupply() external view override returns (uint256) {
+        return _totalSupply;
+    }
+
+    /**
+     * @param who The address to query.
+     * @return The balance of the specified address.
+     */
+
 
     /**
      * @return The computed DOMAIN_SEPARATOR to be used off-chain services
