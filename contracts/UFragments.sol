@@ -180,6 +180,20 @@ contract UFragments is ERC20Detailed, Ownable {
     }
 
     /**
+     * @return the total number of gons.
+     */
+    function scaledTotalSupply() external pure returns (uint256) {
+        return TOTAL_GONS;
+    }
+
+    /**
+     * @return The number of successful permits by the specified address.
+     */
+    function nonces(address who) public view returns (uint256) {
+        return _nonces[who];
+    }
+
+    /**
      * @return The computed DOMAIN_SEPARATOR to be used off-chain services
      *         which implement EIP-712.
      *         https://eips.ethereum.org/EIPS/eip-2612
