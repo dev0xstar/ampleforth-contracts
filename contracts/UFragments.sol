@@ -156,42 +156,6 @@ contract UFragments is ERC20Detailed, Ownable {
         emit Transfer(address(0x0), owner_, _totalSupply);
     }
 
-    /**
-     * @return The total number of fragments.
-     */
-    function totalSupply() external view override returns (uint256) {
-        return _totalSupply;
-    }
-
-    /**
-     * @param who The address to query.
-     * @return The balance of the specified address.
-     */
-    function balanceOf(address who) external view override returns (uint256) {
-        return _gonBalances[who].div(_gonsPerFragment);
-    }
-
-    /**
-     * @param who The address to query.
-     * @return The gon balance of the specified address.
-     */
-    function scaledBalanceOf(address who) external view returns (uint256) {
-        return _gonBalances[who];
-    }
-
-    /**
-     * @return the total number of gons.
-     */
-    function scaledTotalSupply() external pure returns (uint256) {
-        return TOTAL_GONS;
-    }
-
-    /**
-     * @return The number of successful permits by the specified address.
-     */
-    function nonces(address who) public view returns (uint256) {
-        return _nonces[who];
-    }
 
     /**
      * @return The computed DOMAIN_SEPARATOR to be used off-chain services
