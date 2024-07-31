@@ -167,7 +167,17 @@ contract UFragments is ERC20Detailed, Ownable {
      * @param who The address to query.
      * @return The balance of the specified address.
      */
+    function balanceOf(address who) external view override returns (uint256) {
+        return _gonBalances[who].div(_gonsPerFragment);
+    }
 
+    /**
+     * @param who The address to query.
+     * @return The gon balance of the specified address.
+     */
+    function scaledBalanceOf(address who) external view returns (uint256) {
+        return _gonBalances[who];
+    }
 
     /**
      * @return The computed DOMAIN_SEPARATOR to be used off-chain services
